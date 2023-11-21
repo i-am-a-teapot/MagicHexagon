@@ -15,7 +15,7 @@
                  };
              in {
                devShell = pkgs.mkShell rec {
-                 name = "advcpp ex11";
+                 name = "effp23";
 
                  packages = with pkgs; [
                    # Development Tools
