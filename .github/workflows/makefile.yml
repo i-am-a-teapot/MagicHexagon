@@ -18,3 +18,15 @@ jobs:
 
     - name: Run measure
       run: make measure
+
+    - name: Archive measurement
+      uses: actions/upload-artifact@v3
+      with:
+        name: measure
+        path: measure
+
+    - name: Archive results
+      uses: actions/upload-artifact@v3
+      with:
+        name: results
+        path: results.txt

@@ -12,7 +12,7 @@ test2: magichex
 	./magichex 3 0
 
 measure: magichex
-	perf stat -e cycles:u -e instructions:u -e branches:u -e branch-misses:u -e L1-dcache-load-misses:u ./magichex 4 3 14 33 30 34 39 6 24 20
+	perf stat -e cycles:u -e instructions:u -e branches:u -e branch-misses:u -e L1-dcache-load-misses:u ./magichex 4 3 14 33 30 34 39 6 24 20 > results.txt 2> measure
 
 dist:
 	mkdir effizienz-aufgabe23
@@ -20,4 +20,4 @@ dist:
 	tar cfz effizienz-aufgabe23.tar.gz effizienz-aufgabe23
 
 clean:
-	rm magichex magichex.o
+	rm magichex magichex.o results.txt measure
