@@ -19,14 +19,10 @@ jobs:
     - name: Run measure
       run: make measure
 
-    - name: Archive measurement
-      uses: actions/upload-artifact@v3
+    
+    - name: Upload Documentation to Wiki
+      uses: SwiftDocOrg/github-wiki-publish-action@v1
       with:
-        name: measure
         path: measure
-
-    - name: Archive results
-      uses: actions/upload-artifact@v3
-      with:
-        name: results
-        path: results.txt
+      env:
+        GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
