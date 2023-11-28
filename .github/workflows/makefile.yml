@@ -22,7 +22,9 @@ jobs:
     - name: Download measurement from last run
       uses: actions/download-artifact@v3
       with:
-        name: measure.txt
+        name: measure
+        path: measure.txt
+        
     - shell: bash
       run: |
         value=`echo ${git_hash} | cat measure.txt - measure > measure`
