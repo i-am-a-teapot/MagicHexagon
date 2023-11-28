@@ -13,11 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Download measurement from last run
-      uses: actions/download-artifact@v3
-      with:
-        name: measure
-        path: measure.txt
         
     - name: Install dependencies
       run: make
@@ -25,16 +20,15 @@ jobs:
     - name: Run measure
       run: make measure
     
-    
-
-    - shell: bash
+    - name: Run script file
       run: |
-        value=`echo ${git_hash} | cat measure.txt - measure > measure`
-
+         cp measure ../../measure
+      shell: bash
+    
     - name: Archive measurement
       uses: actions/upload-artifact@v3
       with:
-        name: measure.txt
+        name: measure
         path: measure
 
     - name: Archive measurement
