@@ -5,6 +5,8 @@
 
 typedef struct var Var;
 
+//Test push
+
 /* constraint variable; if lo==hi, this is the variable's value */
 typedef struct var {
   long id; /* variable id; id<0 if the variable is not part of the hexagon */
