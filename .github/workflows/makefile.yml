@@ -1,5 +1,5 @@
 name: Makefile CI
-
+run-name: ${{ github.actor }} run test
 on:
   push:
     branches: [ "main" ]
