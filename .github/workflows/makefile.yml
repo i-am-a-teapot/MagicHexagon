@@ -13,18 +13,20 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Install dependencies
-      run: make
-
-    - name: Run measure
-      run: make measure
-    
     - name: Download measurement from last run
       uses: actions/download-artifact@v3
       with:
         name: measure
         path: measure.txt
         
+    - name: Install dependencies
+      run: make
+
+    - name: Run measure
+      run: make measure
+    
+    
+
     - shell: bash
       run: |
         value=`echo ${git_hash} | cat measure.txt - measure > measure`
